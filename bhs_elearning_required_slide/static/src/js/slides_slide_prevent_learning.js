@@ -27,11 +27,19 @@ publicWidget.registry.websiteSlidesSlidePreventLearningAdmin = publicWidget.Widg
         ev.preventDefault();
         var dataId = $(ev.currentTarget).data('id');
         var slideHref = $(ev.currentTarget).attr('href')
-        if (dataId) {var slideId = parseInt(dataId)}
-        else {
+        if (dataId) {
+            var slideId = parseInt(dataId)
+        }else {
             var slideLink = slideHref.replace('?fullscreen=1', '');
-            var slideSplit = slideLink.split('-');
+            if(slideLink.includes('-')) {
+                var slideSplit = slideLink.split('-');
+            }else{
+                var slideSplit = slideLink.split('/');
+            }
+//            var slideSplit = slideLink.split('-');
+            console.log(slideSplit);
             var slideId = parseInt(slideSplit[slideSplit.length - 1]);
+            console.log(slideId);
         }
         const reqSlide = await getReqSlide(this, slideId);
         console.log('reqSlide: ', reqSlide);
@@ -160,13 +168,13 @@ var BHSidebar = publicWidget.Widget.extend({
     /**
      * Get the index of the current slide entry (slide and/or quiz)
      */
-//    _getCurrentIndex: function () {
-//        var slide = this.get('slideEntry');
-//        var currentIndex = this.slideEntries.findIndex(entry =>{
-//            return entry.id === slide.id && entry.isQuiz === slide.isQuiz;
-//        });
-//        return currentIndex;
-//    },
+    _getCurrentIndex: function () {
+        var slide = this.get('slideEntry');
+        var currentIndex = this.slideEntries.findIndex(entry =>{
+            return entry.id === slide.id && entry.isQuiz === slide.isQuiz;
+        });
+        return currentIndex;
+    },
     //--------------------------------------------------------------------------
     // Handler
     //--------------------------------------------------------------------------

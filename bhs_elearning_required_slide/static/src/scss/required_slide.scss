@@ -27,3 +27,48 @@
     color: #fff;
     border-radius: 8px;
 }
+/* required box dia*/
+.bh_img_icon {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 25%;
+}
+
+.bh_button_popup {
+    background: #2F64E4;
+    width: 49%;
+    border-radius: 8px;
+    border: solid 1px #405089;
+    color: #FFF;
+}
+
+.bh_text_popup {
+    padding-bottom: 2%;
+}
+
+.bh_text_popup p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #262D57;
+}
+
+.bh_modal-box {
+    width: 70%;
+    top: 25%;
+    left: 15%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 8px;
+    padding: 16px 16px;
+    border-radius: 8px;
+}
+
+.bh_text_login {
+    color: gray;
+}
