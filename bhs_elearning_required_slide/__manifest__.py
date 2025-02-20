@@ -18,7 +18,7 @@
     'author': 'Bac Ha Software',
     'website': 'https://bachasoftware.com',
     'maintainer': 'Bac Ha Software',
-    'images': ['static/description/banner.gif'],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
     'assets': {
