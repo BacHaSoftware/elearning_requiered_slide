@@ -48,7 +48,7 @@
             <xpath expr="//li[@t-att-data-embed-code]" position="attributes">
                 <attribute name="t-att-data-required">slide.is_required</attribute>
             </xpath>
-            <xpath expr="//a[@t-att-href='link.link']" position="replace">
+            <xpath expr="//a[@t-att-href='resource.link']" position="replace">
                 <a t-if="can_access" t-attf-class="o_wslides_fs_slide_link #{'text-600 text-truncate' if missing_requirement else 'text-truncate'}" t-att-href="link.link" target="_blank">
                     <i class="fa fa-link me-2"/><span t-esc="link.name"/>
                 </a>
