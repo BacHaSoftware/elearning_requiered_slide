@@ -48,18 +48,12 @@
             <xpath expr="//li[@t-att-data-embed-code]" position="attributes">
                 <attribute name="t-att-data-required">slide.is_required</attribute>
             </xpath>
-            <xpath expr="//a[@t-att-href='resource.link']" position="replace">
-                <a t-if="can_access" t-attf-class="o_wslides_fs_slide_link #{'text-600 text-truncate' if missing_requirement else 'text-truncate'}" t-att-href="link.link" target="_blank">
-                    <i class="fa fa-link me-2"/><span t-esc="link.name"/>
-                </a>
+            <xpath expr="//a[@t-att-href='resource.link']" position="attributes">
+                <attribute name="t-if">can_access</attribute>
+                <attribute name="t-attf-class">
+                    o_wslides_fs_slide_link #{'text-600 text-truncate' if missing_requirement else 'text-truncate'}
+                </attribute>
             </xpath>
-<!--            <xpath expr="//a[@t-att-href='resource._get_download_url()']" position="replace">-->
-<!--                <a t-attf-class="o_wslides_fs_slide_link #{'text-600' if missing_requirement else ''}" t-att-href="resource._get_download_url()">-->
-<!--            <xpath expr="//a[@t-attf-href='/web/content/slide.slide.resource/#{resource.id}/data?download=true']" position="replace">-->
-<!--                <a t-attf-class="o_wslides_fs_slide_link #{'text-600' if missing_requirement else ''}" t-attf-href="/web/content/slide.slide.resource/#{resource.id}/data?download=true">-->
-<!--                    <i class="fa fa-download me-2"/><span t-esc="resource.name"/>-->
-<!--                </a>-->
-<!--            </xpath>-->
             <xpath expr="//a[hasclass('o_wslides_fs_slide_quiz')]" position="replace">
                 <a t-if="can_access" t-attf-class="o_wslides_fs_slide_quiz o_wslides_fs_slide_name #{'text-600 text-truncate' if missing_requirement else 'text-truncate'}" href="#" t-att-index="i">
                     <i class="fa fa-flag-checkered text-warning me-2"/>Quiz

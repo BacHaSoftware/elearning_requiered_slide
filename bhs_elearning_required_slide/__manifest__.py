@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 {
     'name': "Elearning Slide Requirement",
-    'version': '1.0',
+    'version': '19.0.1.0',
     'summary': 'Requirement on specific slide',
     'category': 'elearning',
     'description': """

@@ -19,7 +19,6 @@ publicWidget.registry.websiteSlidesSlidePreventLearningAdmin = publicWidget.Widg
 
     init() {
         this._super(...arguments);
-//        this.rpc = this.bindService("rpc");
         this.rpc = rpc;
     },
 
@@ -37,7 +36,6 @@ publicWidget.registry.websiteSlidesSlidePreventLearningAdmin = publicWidget.Widg
             }else{
                 var slideSplit = slideLink.split('/');
             }
-//            var slideSplit = slideLink.split('-');
             var slideId = parseInt(slideSplit[slideSplit.length - 1]);
         }
         const reqSlide = await getReqSlide(this, slideId);
@@ -58,14 +56,11 @@ var BHSidebar = publicWidget.Widget.extend({
     events: {
         "click .o_wslides_fs_sidebar_list_item": '_onClickTab',
         "click .o_wslides_fs_slide_link": '_onClickLink',
-//            "click #modal_required_slide": '_onClickModalLink',
     },
     init: function (parent, slideList, defaultSlide) {
         var result = this._super.apply(this, arguments);
         this.slideEntries = slideList;
         this._slideEntry = defaultSlide;
-//        this.set('slideEntry', defaultSlide);
-//        this.rpc = this.bindService("rpc");
         this.rpc = rpc;
         return result;
     },
@@ -215,14 +210,6 @@ var BHSidebar = publicWidget.Widget.extend({
      * @private
      * @param {*} ev
      */
-//    _onClickMiniQuiz: function (ev){
-//        var slideID = parseInt($(ev.currentTarget).data().slide_id);
-//        this.set('slideEntry',{
-//            slideID: slideID,
-//            isMiniQuiz: true
-//        });
-//        this.trigger_up('change_slide', this.get('slideEntry'));
-//    },
 
     /**
      * Handler called when the user clicks on a normal slide tab
@@ -246,20 +233,6 @@ var BHSidebar = publicWidget.Widget.extend({
             }
         }
 
-//        ev.stopPropagation();
-//        var self = this;
-//        var $elem = $(ev.currentTarget);
-//        var slideID = parseInt($elem.data('id'));
-//        console.log('aaaa');
-//        const reqSlide = await getReqSlide(this, slideID);
-//        if ($elem.data('canAccess') === 'True') {
-//            if (!reqSlide || (reqSlide && reqSlide.can_skip)) {
-//                var isQuiz = $elem.data('isQuiz');
-//                var slide = findSlide(this.slideEntries, {id: slideID, isQuiz: isQuiz});
-//                this.set('slideEntry', slide);
-//            }
-//            else {this.openRequiredSlideModal(reqSlide)};
-//        }
     },
 
     _onClickLink: async function (ev) {
@@ -332,7 +305,6 @@ var ShareButton = publicWidget.Widget.extend({
     init: function (el, slide) {
         var result = this._super.apply(this, arguments);
         this.slide = slide;
-//        this.rpc = this.bindService("rpc");
         this.rpc = rpc;
         return result;
     },
@@ -354,23 +326,26 @@ var ShareButton = publicWidget.Widget.extend({
 
 var BHFullscreen = Fullscreen.include({
     init: function (parent, slides, defaultSlideId, channelData) {
-    this.initialSlideID = defaultSlideId;
-        var result = this._super.apply(this,arguments);
+        var result = this._super.apply(this, arguments);
+
         this.initialSlideID = defaultSlideId;
-        this.slides = this._preprocessSlideData(slides);
         this.channel = channelData;
-        var slide;
+
+        let slide;
         const urlParams = new URL(window.location).searchParams;
+
         if (defaultSlideId) {
-            slide = findSlide(this.slides, {id: defaultSlideId, isQuiz: String(urlParams.get("quiz")) === "1" });
+            slide = findSlide(this.slides, {
+                id: defaultSlideId,
+                isQuiz: String(urlParams.get("quiz")) === "1"
+            });
         } else {
             slide = this.slides[0];
         }
 
-//        this.set('slide', slide);
-
         this.sidebar = new BHSidebar(this, this.slides, slide);
         this.shareButton = new ShareButton(this, slide);
+
         return result;
     },
 });
