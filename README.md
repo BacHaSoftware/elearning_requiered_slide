@@ -8,7 +8,7 @@
     <img src="/bhs_elearning_required_slide/static/description/icon.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Elearning Slide Requirement</h3>
+  <h3 align="center">Learning Sequence Control</h3>
 
   <p align="center">
     A product of Bac Ha Software allows to require user to learn specific slide before able to learn next slides.
