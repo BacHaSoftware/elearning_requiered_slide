@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 {
-    'name': "Elearning Slide Requirement",
+    'name': "Learning Sequence Control",
     'version': '1.0',
     'summary': 'Requirement on specific slide',
     'category': 'elearning',
